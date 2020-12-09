@@ -58,7 +58,8 @@ X_train.shape, X_valid.shape
 
 """**5) Train a decision tree classifier on development/train data and do model selection using the validation data.**
 
-*   Train 3 decision tree classifiers with different values of "min_samples_split" which is the minimum number of samples required to split an internal node: min_samples_split = [default = 2, 5, 10].
+*   Train 3 decision tree classifiers with different values of "min_samples_split" which is the minimum number of samples required to split 
+    an internal node: min_samples_split = [default = 2, 5, 10].
 
 *   Test the 3 models on validation set and choose the best one.
 
@@ -107,8 +108,7 @@ plt.show()
 """**6) Test your CHOSEN classifier on Test set**
 *   Load test data
 *   Apply same pre-processing as training data (probably none)
-*   Predict the labels of testing data using the best chosen SINGLE model out of the models that you have tried from step 6 (you have selected your model according to your validation results) and report the accuracy.
-"""
+*  """
 
 # test prediction using a decision tree with all default parameters and ..... min-split value 
 import operator
@@ -124,7 +124,19 @@ print("Accuracy score is:", value)
 
 """**7) Notebook & Report**
 
-The problem was classification of MNIST data set using a decision tree classifier. Firstly, data was imported by using Keras. It has 10000 test examples and 60000 train examples inside of it. After data imported from Keras, training data was shuflled, then train data was splitted as train and validation sets by using train_test_split method. In addition, since our datas were 28x28 matrices, each data was reshaped to flattened to use pandas library. As a result, instead of 28x28 matrix datas, arrays of size (28*28=784) 784 was used.  Validation set ratio was 20% whereas train set ratio was 80%. Training set was fit the model, then model has tested on validation set. In order to choose best model in terms of accuracy and overfitting issues hyperparameter tuning was done. 3 different decision trees obtained through changing 'min_samples_split' feature of the model. These values were 2, 5 and 10. In order to prevent from overfitting also accuracy scores of training sets were observed. Eventually, 3rd tree which has min_samples_split = 10 was the best model. The reason was that it got best accuracy score on validation set.  But it can change from run to run. As I learned from the course, increasing min_sample_split results in decrease of overfitting probabilty, and it actually seems to decreased overfitting by looking at training accuracy score.
+The problem was classification of MNIST data set using a decision tree classifier. 
+Firstly, data was imported by using Keras. It has 10000 test examples and 60000 train examples inside of it. 
+After data imported from Keras, training data was shuflled, then train data was splitted as train and validation sets 
+by using train_test_split method. In addition, since our datas were 28x28 matrices, each data was reshaped to flattened to use pandas library. 
+As a result, instead of 28x28 matrix datas, arrays of size (28*28=784) 784 was used.  Validation set ratio was 20% whereas train set ratio was 80%. 
+Training set was fit the model, then model has tested on validation set. In order to choose best model in terms of accuracy and overfitting 
+issues hyperparameter tuning was done. 3 different decision trees obtained through changing 'min_samples_split' feature of the model. 
+These values were 2, 5 and 10. In order to prevent from overfitting also accuracy scores of training sets were observed. 
+Eventually, 3rd tree which has min_samples_split = 10 was the best model. The reason was that it got best accuracy score on validation set.  
+But it can change from run to run. As I learned from the course, increasing min_sample_split results in decrease of overfitting probabilty, 
+and it actually seems to decreased overfitting by looking at training accuracy score.
 
-Obtained training accuracies were almost 100%, 98%, and 96% whereas validation accuracies were 86.78%, 86.85%, and 86.9%. After this point, model was tested on test data set with the model which got the highest validation accuracy. Obtained accuracy on test set was 86.79% which is close to validation set accuracy of 3rd model.
+Obtained training accuracies were almost 100%, 98%, and 96% whereas validation accuracies were 86.78%, 86.85%, and 86.9%. 
+After this point, model was tested on test data set with the model which got the highest validation accuracy. Obtained accuracy 
+on test set was 86.79% which is close to validation set accuracy of 3rd model.
 """
